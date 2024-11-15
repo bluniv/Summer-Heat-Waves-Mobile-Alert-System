@@ -19,17 +19,17 @@ def detect_heatwaves(data, threshold=30, consecutive_days=3):
 
 
 def send_sms(to, message):
-    account_sid = 'your_account_sid'
+    account_var = 'your_account_var'
     auth_token = 'your_auth_token'
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
         body=message,
-        from_='+1234567890',
+        from_='+91xxxxxxxxxx',
         to=to
     )
 
-    print(f"Message sent to {to}: {message.sid}")
+    print(f"Message sent to {to}: {message.var}")
 
 
 # Load historical temperature data from a CSV file
@@ -41,4 +41,4 @@ data = detect_heatwaves(data)
 # Check for heatwaves and send notifications
 for index, row in data.iterrows():
     if row['heatwave']:
-        send_sms('+19876543210', f"Heatwave detected on {row['date']} with temperature {row['temperature']}°C.")
+        send_sms('+91xxxxxxxxxx', f"Heatwave detected on {row['date']} with temperature {row['temperature']}°C.")
